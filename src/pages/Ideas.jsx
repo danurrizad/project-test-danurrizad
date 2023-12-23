@@ -105,7 +105,7 @@ const Ideas = () => {
   return (
     <>
     {/* Landing Page */}
-    <div className="min-h-[60vh] bg-[url('/img/background.jpg')] bg-cover z-0 flex justify-center items-center w-full ">
+    <div className="min-h-[60vh] bg-[url('/img/background.jpg')] bg-no-repeat bg-cover z-0 flex justify-center items-center w-full ">
         <div className='flex-col justify-center items-center text-white'>
             <h1 className='text-[41px] text-center'>Ideas</h1>
             <h2 className='text-[19px]'>Where all our great things begin</h2>
@@ -118,15 +118,15 @@ const Ideas = () => {
     </div>
 
     {/* Content */}
-    <div className='min-h-screen px-20 py-10'>
+    <div className='min-h-screen 2xl:px-20 xl:px-20 lg:px-20 md:px-20 sm:px-6 px-6 py-10'>
         {/* Sorting */}
-        <div className='flex justify-between'>
+        <div className='flex 2xl:flex-row xl:flex-row lg:flex-row md:flex-row sm:flex-col flex-col justify-between'>
             {pageSizeParam * pageNumberParam < 274 ? (
                 <div>Showing {1 + ((pageNumberParam-1) * pageSizeParam )}-{pageSizeParam * pageNumberParam} of 274</div>
             ):(
                 <div>Showing {1 + ((pageNumberParam-1) * pageSizeParam )}-274 of 274</div>
             )}
-            <div className='flex justify-end gap-20'>
+            <div className='flex 2xl:flex-row xl:flex-row lg:flex-row md:flex-row sm:flex-col flex-col justify-end 2xl:gap-20 xl:gap-20 lg:gap-20 md:gap-20 sm:gap-2 gap-2 items-start'>
                 <Dropdown options={optionsPage} label="Show per page:" valueSelect={pageSizeParam} valueOption={valuePage} handleChange={handlePageSizeChange}/>
                 <Dropdown options={optionsDate} label="Sort by:" valueSelect={sortParam} valueOption={valueDate} handleChange={handleSortChange}/>
             </div>

@@ -34,7 +34,7 @@ const Dropdown = ({ options, label, valueSelect, valueOption, handleChange }) =>
 
   return (
     <div className="relative" ref={dropdownRef}>
-      <div className='flex justify-center items-center gap-4'>
+      <div className='flex 2xl:justify-center justify-between items-center gap-4'>
         <span>{label}</span>
         <select className=" bg-white shadow-lg rounded-full px-10 py-2 border-2 border-black cursor-pointer" value={valueSelect} onChange={handleChange}>
           {/* Dropdown list content */}

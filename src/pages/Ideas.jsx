@@ -31,28 +31,28 @@ const Ideas = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-        try {
-            const response = await axios.get(API,
-            {
-                params: {
-                    'page[number]': pageNumberParam,
-                    'page[size]': pageSizeParam,
-                    append: ['small_image', 'medium_image'],        
-                    sort: sortParam,
-                },
+            try {
+                const response = await axios.get(API,
+                {
+                    params: {
+                        'page[number]': pageNumberParam,
+                        'page[size]': pageSizeParam,
+                        append: ['small_image', 'medium_image'],        
+                        sort: sortParam,
+                    },
+                }
+                );
+                localStorage.setItem('dataApiLocal', JSON.stringify(response.data.data));
+                getTotalPageNumber(pageSizeParam);
+                // setDataAPI(response.data.data);
+                console.log(response.data.data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
             }
-            );
-            localStorage.setItem('dataApiLocal', JSON.stringify(response.data.data));
-            setDataAPI(JSON.parse(localStorage.getItem('dataApiLocal')));
-            getTotalPageNumber(pageSizeParam);
-            // setDataAPI(response.data.data);
-            console.log(response.data.data);
-        } catch (error) {
-            console.error('Error fetching data:', error);
-        }
         };
 
         fetchData();
+        setDataAPI(JSON.parse(localStorage.getItem('dataApiLocal')));
     }, [pageNumberParam, pageSizeParam, sortParam]);
 
     // Fungsi untuk mengubah nilai parameter URL

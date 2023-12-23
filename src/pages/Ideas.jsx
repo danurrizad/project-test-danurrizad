@@ -4,24 +4,21 @@ import Dropdown from '../components/Dropdown';
 import axios from 'axios';
 import { FaAngleDoubleLeft, FaAngleDoubleRight, FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
-// const Ideas = ({dataAPI, handlePageSizeChange, handleSortChange}) => {
 const Ideas = () => {
 
     const [dataAPI, setDataAPI] = useState([]);
     const [totalPages, setTotalPages] = useState(28)
-    // const { pageNumberParam } = useParams();
     const { pageNumber, sort, pageSize } = useParams();
     const navigate = useNavigate();
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
 
-    // Mendapatkan nilai parameter dari URL
     const pageNumberParam = searchParams.get('pageNumber') || '1';
     const sortParam = searchParams.get('sort') || 'published_at';
     const pageSizeParam = searchParams.get('pageSize') || '10';
 
     
-    const API = "https://suitmedia-backend.suitdev.com/api/ideas"
+    const API = import.meta.env.VITE_API
 
     const getTotalPageNumber = (pageSize) => {
         const calculatedTotalPages = Math.ceil(274 / pageSize);
@@ -44,7 +41,6 @@ const Ideas = () => {
                 );
                 localStorage.setItem('dataApiLocal', JSON.stringify(response.data.data));
                 getTotalPageNumber(pageSizeParam);
-                // setDataAPI(response.data.data);
                 console.log(response.data.data);
             } catch (error) {
                 console.error('Error fetching data:', error);

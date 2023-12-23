@@ -21,11 +21,22 @@ function App() {
     setDataApiLocal(dataApi);
   },[]);
 
-  // if (dataApiLocal) {
-  //   console.log("Data dari localStorage:", dataApiLocal);
-  // } else {
-  //   console.log("Data tidak ditemukan di localStorage");
-  // }
+  // Formatting Dates into Date Month Year
+  const formatDate = (publishedAt) => {
+    const dateObject = new Date(publishedAt);
+    const months = [
+    "Januari", "Februari", "Maret", "April", "Mei", "Juni",
+    "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+    ];
+
+    const day = dateObject.getDate();
+    const month = months[dateObject.getMonth()];
+    const year = dateObject.getFullYear();
+
+    return `${day} ${month} ${year}`;
+  };
+
+  const formattedDates = dataApiLocal.map((item) => formatDate(item.published_at));
 
   return (
     <>
@@ -41,11 +52,11 @@ function App() {
           <Route path='/contact' element={<Contact/>}/>
           {dataApiLocal ? (
             <>
-              {dataApiLocal.map(data => (
+              {dataApiLocal.map((data,index) => (
                 <Route
                   key={data.slug}
                   path={`/ideas/${data.slug}`}
-                  element = {<IdeasPosts title={data.title} content={data.content}/>}
+                  element = {<IdeasPosts title={data.title} publishedDate={formattedDates[index]} content={data.content}/>}
                 />
               ))}
             </>

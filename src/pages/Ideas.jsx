@@ -105,7 +105,7 @@ const Ideas = () => {
   return (
     <>
     {/* Landing Page */}
-    <div className="min-h-[60vh] bg-[url('/img/background.jpg')] bg-no-repeat bg-cover z-0 flex justify-center items-center w-full ">
+    <div className="h-[60vh] bg-[url('/img/background.jpg')] bg-no-repeat bg-cover z-0 flex justify-center items-center w-full ">
         <div className='flex-col justify-center items-center text-white'>
             <h1 className='text-[41px] text-center'>Ideas</h1>
             <h2 className='text-[19px]'>Where all our great things begin</h2>

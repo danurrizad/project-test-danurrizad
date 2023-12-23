@@ -43,10 +43,11 @@ function App() {
       <Router>
         <Header/>
         <Routes>
-          <Route path='/' element={<Home/>}/>
+          <Route path='/home' element={<Home/>}/>
           <Route path='/work' element={<Work/>}/>
           <Route path='/about' element={<About/>}/>
           <Route path='/services' element={<Services/>}/>
+          <Route path='/' element={<Ideas/>}/>
           <Route path='/ideas' element={<Ideas/>}/>
           <Route path='/careers' element={<Careers/>}/>
           <Route path='/contact' element={<Contact/>}/>

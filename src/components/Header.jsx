@@ -50,7 +50,7 @@ const Header = () => {
     <>
     <header className={headerClasses}>
         <div className='flex justify-between items-center h-full'>
-            <Link to='/'>
+            <Link to='/home'>
                 <img src={`/img/logo.png`} className='h-[40px]' alt="logo-suitmedia" />
             </Link>
             <div className='2xl:flex xl:flex lg:flex md:flex sm:hidden hidden justify-center gap-10  text-[16px] font-bold'>

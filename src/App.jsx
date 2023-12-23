@@ -60,7 +60,11 @@ function App() {
                 />
               ))}
             </>
-          ):null}
+          ):(
+            <>
+              Tidak ada data
+            </>
+          )}
         </Routes>
       </Router>
     </>
